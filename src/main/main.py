@@ -56,7 +56,7 @@ def load_and_clean_users(file_path):
             print(parts)
             if all(parts) and len(parts) == 2:
                 cursor.execute('''INSERT INTO Users (firstName, lastName)
-                    VALUES(?, ?)''', parts[0], parts[1])
+                    VALUES(?, ?)''', parts)
                 print('Adding', user_data)
     conn.commit()
 
@@ -74,7 +74,7 @@ def load_and_clean_call_logs(file_path):
                     parts[2] = int(parts[2])
                     parts[-1] = int(parts[-1])
                     cursor.execute('''INSERT INTO CallLogs (phoneNumber, startTime, endTime, direction, userId)
-                        VALUES(?, ?, ?, ?, ?)''', *parts)
+                        VALUES(?, ?, ?, ?, ?)''', parts)
                     conn.commit()
                 except:
                     continue
