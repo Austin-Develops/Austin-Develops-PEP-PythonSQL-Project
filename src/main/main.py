@@ -53,6 +53,7 @@ def load_and_clean_users(file_path):
     with open(file_path, 'r') as f:
         for user_data in f.readlines()[1:]:
             parts = [part.strip() for part in user_data]
+            print(parts)
             if all(parts) and len(parts) == 2:
                 cursor.execute('''INSERT INTO Users (firstName, lastName)
                     VALUES(?, ?)''', parts[0], parts[1])
