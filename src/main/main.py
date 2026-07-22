@@ -86,7 +86,7 @@ def load_and_clean_call_logs(file_path):
 def write_user_analytics(csv_file_path):
 
     # print("TODO: write_user_analytics")
-    cursor.execute('''SELECT userId, AVG(endTime - startTime), COUNT(*)
+    cursor.execute('''SELECT (userId, AVG(endTime - startTime), COUNT(*))
                     FROM CallLogs
                     GROUPBY userId''')
     
@@ -96,7 +96,7 @@ def write_user_analytics(csv_file_path):
         print('user analytics results:')
         print(results)
         print('\n'*3)
-        writer.write(results)
+        writer.writerows(results)
 
 
 # This function will write the callLogs ordered by userId, then start time.
@@ -113,7 +113,7 @@ def write_ordered_calls(csv_file_path):
         print('write logs results:')
         print(results)
         print('\n'*3)
-        writer.write(results)
+        writer.writerows(results)
 
 
 # No need to touch the functions below!------------------------------------------
