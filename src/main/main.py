@@ -52,7 +52,7 @@ def load_and_clean_users(file_path):
     # print("TODO: load_users")
     with open(file_path, 'r') as f:
         for user_data in f.readlines()[1:]:
-            parts = [part.strip() for part in user_data]
+            parts = [part.strip() for part in user_data.split(',')]
             print(parts)
             if all(parts) and len(parts) == 2:
                 cursor.execute('''INSERT INTO Users (firstName, lastName)
@@ -67,7 +67,7 @@ def load_and_clean_call_logs(file_path):
     # print("TODO: load_call_logs")
     with open(file_path, 'r') as f:
         for call_log_data in f.readlines()[1:]:
-            parts = [part.strip() for part in call_log_data]
+            parts = [part.strip() for part in call_log_data.split(',')]
             if all(parts) and len(parts) == 5:
                 try:
                     parts[1] = int(parts[1])
