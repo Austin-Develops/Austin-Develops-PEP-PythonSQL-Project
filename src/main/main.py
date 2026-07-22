@@ -88,7 +88,7 @@ def write_user_analytics(csv_file_path):
     # print("TODO: write_user_analytics")
     cursor.execute('''SELECT (userId, AVG(endTime - startTime), COUNT(*))
                     FROM CallLogs
-                    GROUPBY userId''')
+                    GROUP BY userId''')
     
     with open(csv_file_path, 'w', newline='') as f:
         writer = csv.writer(f)
