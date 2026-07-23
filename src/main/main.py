@@ -90,7 +90,7 @@ def write_user_analytics(csv_file_path):
                     FROM CallLogs
                     GROUP BY userId''')
     
-    with open(csv_file_path, 'w', newline='') as f:
+    with open(csv_file_path, 'a', newline='') as f:
         writer = csv.writer(f)
         results = cursor.fetchall()
         print('user analytics results:')
