@@ -104,6 +104,7 @@ def write_user_analytics(csv_file_path):
         next(file)
 
         # Read the contents of the file line by line, saving them to user_analytics
+        user_analytics = []
         for line in file:
             user_analytics.append(line.strip().split(','))
 
