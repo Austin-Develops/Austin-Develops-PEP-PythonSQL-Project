@@ -100,12 +100,12 @@ def write_user_analytics(csv_file_path):
     
     with open(csv_file_path, 'r') as file:
 
-            # Skip the first line
-            next(file)
+        # Skip the first line
+        next(file)
 
-            # Read the contents of the file line by line, saving them to user_analytics
-            for line in file:
-                user_analytics.append(line.strip().split(','))
+        # Read the contents of the file line by line, saving them to user_analytics
+        for line in file:
+            user_analytics.append(line.strip().split(','))
 
         # order user_analytics by userId ascending
         user_analytics.sort(key=lambda x: int(x[0]))
